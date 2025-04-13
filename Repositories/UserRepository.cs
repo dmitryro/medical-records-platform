@@ -45,6 +45,16 @@ namespace MedicalAPI.Repositories
             return existing;
         }
 
+        public async Task<Role> GetRoleById(uint id)
+        {
+            return await _db.Roles.FindAsync(id);
+        }
+
+        public async Task<User?> GetUserByUsername(string username)
+        {
+            return await _db.Users.Include(u => u.Role).FirstOrDefaultAsync(u => u.Username == username);
+        }
+
         public async Task<bool> DeleteAsync(uint id)
         {
             var existing = await _db.Users.FindAsync(id);
@@ -55,5 +65,3 @@ namespace MedicalAPI.Repositories
         }
     }
 }
-
-

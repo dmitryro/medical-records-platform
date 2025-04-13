@@ -13,6 +13,8 @@ namespace MedicalAPI.Repositories
         Task<User> AddAsync(User user);
         Task<User?> UpdateAsync(uint id, User user);
         Task<bool> DeleteAsync(uint id);
+        Task<User> GetUserByUsername(string username);
+        Task<Role> GetRoleById(uint id); 
     }
 }
 
