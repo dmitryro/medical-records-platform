@@ -1,4 +1,8 @@
-# medical-records-platform  - .NET Core 10 API for Electronic Medical Records platform with scheduling functionaltiy.
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue)
+
+
+# Medical Records Platform  - .NET Core 10 API for Electronic Medical Records platform with scheduling functionaltiy.
 
 ## Authorization and Authentication
 
