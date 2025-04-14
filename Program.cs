@@ -149,6 +149,8 @@ builder.Services.AddSwaggerGen(options =>
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IMasterPatientIndexRepository, MasterPatientIndexRepository>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<RegisterService>();
 builder.Services.AddSingleton<JwtTokenGenerator>();
@@ -394,4 +396,3 @@ app.MapDelete("/api/users/{id}", [Authorize(Policy = "SuperuserPolicy")] async (
 
 
 app.Run();
-

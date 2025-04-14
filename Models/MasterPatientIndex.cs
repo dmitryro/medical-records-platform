@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,31 +11,26 @@ namespace MedicalAPI.Models
         [Column("id")]
         public int Id { get; set; }
 
-        [Required]
         [Column("patient_id")]
-        public int PatientId { get; set; }
+        public int? PatientId { get; set; } // Changed to int?
 
-        [Required]
         [Column("first_name")]
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
 
-        [Required]
         [Column("last_name")]
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
 
-        [Required]
         [Column("date_of_birth")]
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
 
-        [Required]
         [Column("gender")]
-        public string Gender { get; set; }
+        public string? Gender { get; set; }
 
         [Column("address")]
         public string? Address { get; set; }
 
-        [Column("phone_numbers")]
-        public List<string>? PhoneNumbers { get; set; }
+        [Column("contact_number")]
+        public string? ContactNumber { get; set; }
 
         [Column("email")]
         public string? Email { get; set; }
@@ -50,12 +44,11 @@ namespace MedicalAPI.Models
         [Column("match_date")]
         public DateTime? MatchDate { get; set; }
 
-        [Required]
         [Column("created_at")]
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        [Required]
         [Column("updated_at")]
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
     }
 }
+

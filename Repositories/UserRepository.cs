@@ -2,6 +2,7 @@ using MedicalAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MedicalAPI.Data;
 
 namespace MedicalAPI.Repositories
 {

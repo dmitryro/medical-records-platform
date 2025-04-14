@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace MedicalAPI.Models
 {
     [Table("vitals", Schema = "public")]
-    public class Vital
+    public class Vitals
     {
         [Key]
         [Column("id")]

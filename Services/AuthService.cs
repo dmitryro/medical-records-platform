@@ -1,7 +1,7 @@
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
-using System.Security.Claims;
+using System.Security.Claims; // Import this using statement
 using System.Text;
 using System.Threading.Tasks;
 using BCrypt.Net;
@@ -60,7 +60,7 @@ namespace MedicalAPI.Services
         }
 
         // Register a new user with password hashing
-        public async Task<string> Register(Registration model)
+        public async Task<string> Register(RegistrationDto model) // Change to RegistrationDto
         {
             var existingUser = await _userRepository.GetByUsernameAsync(model.Username);
             if (existingUser != null)
@@ -97,9 +97,9 @@ namespace MedicalAPI.Services
             {
                 Subject = new ClaimsIdentity(new[]
                 {
-                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                    new Claim(ClaimTypes.Name, user.Username),
-                    new Claim(ClaimTypes.Role, user.Role?.Name ?? string.Empty)
+                    new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.NameIdentifier, user.Id.ToString()), // Fully qualify Claim
+                    new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Name, user.Username),             // Fully qualify Claim
+                    new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Role, user.Role?.Name ?? string.Empty) // Fully qualify Claim
                 }),
                 Expires = DateTime.UtcNow.AddHours(1),
                 Issuer = jwtIssuer,
