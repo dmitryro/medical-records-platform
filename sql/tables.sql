@@ -425,3 +425,34 @@ CREATE TABLE public.social_determinants (
         REFERENCES public.users (id)
         ON DELETE SET NULL
 );
+
+
+-- Create states_provinces table
+CREATE TABLE public.states_provinces (
+    id SERIAL PRIMARY KEY,
+    mame TEXT NOT NULL,
+    code TEXT NOT NULL,
+    country TEXT
+);
+
+-- Create addresses table
+CREATE TABLE public.addresses (
+    id SERIAL PRIMARY KEY,
+    address1 TEXT NOT NULL,
+    address2 TEXT NOT NULL,
+    floor TEXT,
+    room TEXT,
+    apartment TEXT,
+    address_type TEXT NOT NULL,
+    city TEXT NOT NULL,
+    state_province_id INTEGER NOT NULL,
+    postal_code TEXT,
+    county TEXT,
+    region TEXT,
+    country TEXT NOT NULL,
+    CONSTRAINT fk_state_province
+        FOREIGN KEY (state_province_id)
+        REFERENCES public.states_provinces (id)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
+);
