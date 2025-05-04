@@ -11,7 +11,8 @@ using System.Threading.Tasks;
 namespace MedicalAPI.Controllers
 {
     [ApiController]
-    [Route("api/patients")]
+    [Route("api/v1/patients")]
+    [ApiExplorerSettings(GroupName = "v1")]
     [Authorize]
     public class PatientController : ControllerBase
     {

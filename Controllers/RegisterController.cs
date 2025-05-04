@@ -5,7 +5,8 @@ using MedicalAPI.Data;
 using System.Threading.Tasks;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/v1/[controller]")]
+[ApiExplorerSettings(GroupName = "v1")]
 public class RegisterController : ControllerBase
 {
     private readonly RegisterService _registerService;
@@ -14,8 +15,8 @@ public class RegisterController : ControllerBase
     {
         _registerService = registerService;
     }
-/*
-    [HttpPost]
+
+    [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] Registration model)
     {
         if (model == null)
@@ -40,16 +41,14 @@ public class RegisterController : ControllerBase
             RoleId = model.RoleId
         };
 
-        var registeredUser = await _registerService.RegisterUser(registrationDto); // Changed to User?
+        var registeredUser = await _registerService.RegisterUser(registrationDto);
 
         if (registeredUser != null)
         {
-            return Ok(new { message = "User registered successfully.", user = registeredUser }); // Return user data
+            return Ok(new { message = "User registered successfully.", user = registeredUser });
         }
 
         return BadRequest(new { message = "Username already exists or role missing." });
     }
-
-*/
 }
 

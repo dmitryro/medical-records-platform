@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 namespace MedicalAPI.Controllers
 {
     [ApiController]
-    [Route("api/mpi")]
+    [Route("api/v1/mpi")]
+    [ApiExplorerSettings(GroupName = "v1")]
     //[HasPermission("superuser")] // Remove this - we'll use policies
     [Authorize] //  Require authorization for all actions in this controller
     public class MasterPatientIndexController : ControllerBase
